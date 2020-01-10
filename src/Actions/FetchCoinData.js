@@ -6,9 +6,9 @@ import {
   FETCH_COIN_DATA_FAIL
 } from "../Utils/ActionTypes";
 
-export const FetchCoinData = () => {
+export default function FetchCoinData() {
   return dispatch => {
-    dispatch({ FETCH_COIN_DATA });
+    dispatch({ type: FETCH_COIN_DATA });
 
     return Axios.get(`${apiBaseURL}/v1/ticker/?limit=10`)
       .then(res => {
@@ -21,4 +21,4 @@ export const FetchCoinData = () => {
         });
       });
   };
-};
+}
